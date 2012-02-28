@@ -102,7 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fubu-content\FubuMVC.GettingStarted.dll" />
-    <Content Include="Interface\Home.aspx" />
+    <Content Include="Interface\Actions\Home.aspx" />
+    <Content Include="Interface\Actions\Products\Add\AddProduct.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -114,9 +115,19 @@
   <ItemGroup>
     <Compile Include="App_Start\FubuMVC.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />
-    <Compile Include="Interface\HomeAction.cs">
+    <Compile Include="Core\HtmlExtensions.cs" />
+    <Compile Include="Core\ICrudService.cs" />
+    <Compile Include="Domain\DomainEntity.cs" />
+    <Compile Include="Domain\Product.cs" />
+    <Compile Include="Interface\Actions\HomeAction.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Interface\Actions\Products\Add\AddProductFormAction.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interface\Actions\Products\CreateProductAction.cs" />
+    <Compile Include="Interface\Actions\Products\ListProductAction.cs" />
+    <Compile Include="Interface\Actions\Products\ViewProductAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,8 +137,9 @@
     <Content Include="fubu-content\fubumvc-diagnostics.zip" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Shared\Site.master" />
+    <Content Include="Interface\Actions\Shared\Site.master" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
